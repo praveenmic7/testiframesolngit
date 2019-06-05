@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="assets/bootstrap-dialog/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css">
+
+<meta charset="utf-8" />
+<title>FastLink</title>
+<style>
+    .login-dialog .modal-dialog {
+        width: 780px;
+    }
+</style>
+</head>
+<body style="padding-bottom: 100px;">
+<div class="container col-lg-6 col-lg-offset-2 m-t-large">
+    <h2>FastLink3.0 simulation tool</h2>
+    <hr />
+
+<form method="POST" action="https://finapp.uberiavstage.yodlee.com/authenticate/uberiav/10003600/">
+  <div class="form-group">
+    <label for="formGroupExampleInput2">User Session Token</label>
+    <input type="text" class="form-control" name="rsession" placeholder="User session token" required="">
+  </div>
+   <div class="form-group">
+    <label for="formGroupExampleInput2">Authenticator Token</label>
+    <input type="text" class="form-control" name="token" placeholder="Access token" required="">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Redirect</label>
+    <input type="text" class="form-control" name="redirectReq" value = "true" placeholder="Another input">
+  </div>
+   <div class="form-group">
+    <label for="formGroupExampleInput2">Extra Params</label>
+    <input type="text" class="form-control" name="extraParams" value="callback=https://money.yodlee.com/" placeholder="callback=https://money.yodlee.com/" >
+  </div>
+  <div class="form-group">
+   <button type="submit" class="btn btn-primary">Launch FastLink</button>
+  </div>
+</form>
+
+
+ <!--   <button id="avBtn" class="btn btn-primary">Account Verification</button> -->
+
+
+</div>
+
+<script type="text/javascript">
+
+$( "#avBtn" ).click(function() {
+    BootstrapDialog.show({
+                    title: 'Instant Account Verification',
+            cssClass: 'login-dialog',
+
+            message: $('<div></div>').load('fastlink.html')
+        });
+});
+
+
+
+</script>
+</body>
+</html>
